@@ -49,6 +49,13 @@ function harbor_process_html(&$variables, $hook) {
   $variables['html_attributes'] = drupal_attributes($variables['html_attributes_array']);
 }
 
+/**
+ * Implements hook_preprocess_node().
+ */
+function harbor_preprocess_node(&$variables) {
+  // Add an 'unpublished' variable.
+  $variables['unpublished'] = (!$variables['status']) ? TRUE : FALSE;
+}
 
 /**
  * Implements hook_page_alter().
