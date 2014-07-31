@@ -1,0 +1,12 @@
+name        = Harbor
+description = A clean base theme for Drupal 7
+core        = 7.x
+
+; Remove Drupal core styles.
+stylesheets[all][]      = system.theme.css
+stylesheets[all][]      = system.menus.css
+
+regions[header]         = Header
+regions[help]           = Help Messages
+regions[content]        = Content
+regions[footer]         = Footer

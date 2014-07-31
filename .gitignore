@@ -1,0 +1,10 @@
+# Ignore Mac files
+.DS_Store
+
+# Ignore PHPStorm files
+.idea/
+.idea/*
+
+# Ignore rbenv project files
+.ruby-version
+
