@@ -1,7 +1,8 @@
-@import "compass/css3";
-@import "susy";
-@import "breakpoint";
+// This is where you'll include 3rd party stuff.
+// @import "susy";
+// @import "breakpoint";
 
+// This is where you'll include local stuff.
 @import "global/global";
 @import "base/base";
 @import "layout/layout";
