@@ -1,5 +1,5 @@
-name        = Harbor
-description = A clean base theme for Drupal 7
+name        = Windup
+description = A clean theme for Drupal 7
 core        = 7.x
 
 ; Remove Drupal core styles.
