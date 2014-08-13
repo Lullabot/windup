@@ -1,6 +1,6 @@
 # Windup
 
-A base theme for Drupal. It's pretty light.
+A starter theme for Drupal. It's pretty light.
 
 ## Automation Tools
 ### tl;dr
