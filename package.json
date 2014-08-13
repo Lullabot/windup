@@ -1,0 +1,9 @@
+{
+  "name": "windup",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4",
+    "grunt-contrib-watch": "~0.6",
+    "grunt-contrib-sass": "~0.7"
+  }
+}

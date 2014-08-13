@@ -8,3 +8,12 @@
 # Ignore rbenv project files
 .ruby-version
 
+# Ignore output css
+css/style.css
+
+# Ignore node modules
+node_modules
+
+# Ignore sass cache
+.sass-cache
+
