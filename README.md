@@ -64,7 +64,7 @@ This will wire the Bower components specified in ```bower.json``` into ```windup
 This will add your externally obtained JavaScript and CSS, as well as all it's necessary dependencies, into windup.info
 
 ```bash
-$ bower install <package>
+$ bower install <package> --save
 $ grunt wiredep
 ```
 
