@@ -15,6 +15,7 @@ css/style.css
 node_modules
 
 # Ignore bower components
+bower_components
 
 # Ignore sass cache
 .sass-cache
