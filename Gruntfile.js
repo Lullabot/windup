@@ -13,7 +13,7 @@ module.exports = function(grunt) {
           style: 'compressed'        // Output style. Can be nested, compact, compressed, expanded
         },
         files: {
-          'scss/style.scss': 'css/style.css'
+          'css/style.css': 'scss/style.scss'
         }
       }
     },

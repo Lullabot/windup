@@ -5,12 +5,17 @@ A starter theme for Drupal. It's pretty light.
 ## Automation Tools
 ### tl;dr
 
+Make sure you have npm, bundler and grunt-cli installed
 ```bash
-gem install bundler
-bundle install
+sudo gem install bundler
+brew install node
 npm install -g grunt-cli
+```
+
+```bash
+bundle install
 npm install
-grunt sass
+grunt sass:dist
 grunt watch
 ```
 

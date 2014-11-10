@@ -1,9 +1,4 @@
-// This is where you'll include 3rd party stuff.
-// @import "susy";
-// @import "breakpoint";
-
-// This is where you'll include local stuff.
-@import "libraries/libraries";
+@import "core/core";
 @import "base/base";
 @import "layout/layout";
 @import "component/component";
