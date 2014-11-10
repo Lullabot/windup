@@ -13,6 +13,7 @@ css/style.css
 
 # Ignore node modules
 node_modules
+npm-debug.log
 
 # Ignore bower components
 bower_components
