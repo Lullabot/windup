@@ -27,6 +27,8 @@ grunt watch
 grunt sass
 ```
 
+You can also enable sourcemaps and full tracebacks on error in Gruntfile.js
+
 #### Watch for changes
 
 ```bash
@@ -39,7 +41,7 @@ This task will automatically compile SASS when changes are detected in the `.scs
 
 Grunt watch can also be used with the [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) Chrome extension.
 
-If you're using grunt watch + livereload, your browser will refresh when Grunt spots a change to your sass files.
+If you're using grunt watch and click the livereload button, your browser will refresh when Grunt spots a change to your sass files.
 That means no more punching the reload button in your browser for tiny changes during the theming process.
 
 ### More Detailed Install Instructions
@@ -53,7 +55,7 @@ You may need to have admin/root permissions to run the installation tasks.
 #### Install Bundler / Required Gems
 
 ```bash
-gem install bundler
+sudo gem install bundler
 ```
 
 Bundler, [bundler](http://bundler.io/v1.3/gemfile.html), is the dependency
