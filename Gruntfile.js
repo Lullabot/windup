@@ -28,12 +28,35 @@ module.exports = function(grunt) {
           spawn: false
         }
       }
+    },
+    wiredep: {
+      task: {
+        src: [
+          'windup.info'
+        ],
+        options: {
+          fileTypes: {
+            info: {
+              block: /(([ \t]*);\s*bower:*(\S*))(\n|\r|.)*?(;\s*endbower)/gi,
+              detect: {
+                js: /scripts\[\] = \s(.+js)/gi,
+                css: /stylesheets\[all\]\[\] = \s(.+css)/gi
+              },
+              replace: {
+                js: 'scripts[] = {{filePath}}',
+                css: 'stylesheets[all][] = {{filePath}}'
+              }
+            }
+          }
+        }
+      }
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-wiredep');
 
-  grunt.registerTask('default', ['watch', 'sass']);
+  grunt.registerTask('default', ['sass', 'watch', 'wiredep']);
 
 };

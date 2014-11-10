@@ -4,12 +4,13 @@ A starter theme for Drupal. It's pretty light.
 
 ## Installation
 
-Make sure you have npm, bundler and grunt-cli installed
+Make sure you have npm, bundler, bower and grunt-cli installed
 
 ```bash
 $ sudo gem install bundler
 $ brew install node
 $ npm install -g grunt-cli
+$ npm install -g bower
 ```
 
 Then install the theme's dependencies
@@ -17,6 +18,7 @@ Then install the theme's dependencies
 ```bash
 $ bundle install
 $ npm install
+$ bower install
 ```
 
 You can also enable sourcemaps and full tracebacks on error in Gruntfile.js
@@ -27,6 +29,8 @@ If the dependencies for a project change, you can update them with:
 
 ```bash
 $ bundle update
+$ npm update
+$ bower update
 ```
 
 ## Usage
@@ -47,10 +51,31 @@ This task will automatically compile SASS when changes are detected in the `.scs
 
 If you're using ```grunt watch``` and click the [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) button, your browser will refresh automatically when Grunt spots a change to your sass files.
 
+### Wire Dependencies
+
+```bash
+$ grunt wiredep
+```
+
+This will wire the Bower components specified in ```bower.json``` into ```windup.info``` (See below).
+
+## Installing JavaScript or CSS from The Internets
+
+This will add your externally obtained JavaScript and CSS, as well as all it's necessary dependencies, into windup.info
+
+```bash
+$ bower install <package>
+$ grunt wiredep
+```
+
+Where <package> is a registered package, GitHub shorthand (e.g. " desandro/masonry"), Git endpoint (e.g. "git://github.com/user/package.git") or a URL (e.g. "http://example.com/script.js").
+You can also edit ```bower.json``` directly.
+
 ## Installing new Node.js modules
 
-Either add to package.json or run:
+These are typically used for getting Grunt plugins. Either add to package.json or run:
 
 ```bash
 $ npm install <module> --save-dev
 ```
+
