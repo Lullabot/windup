@@ -13,5 +13,6 @@
     "tests"
   ],
   "dependencies": {
+    "normalize-scss": "JohnAlbin/normalize-scss#~3.0.2+normalize.3.0.2"
   }
 }
