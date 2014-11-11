@@ -1,9 +1,7 @@
-// This is where you'll include 3rd party stuff.
-// @import "susy";
-// @import "breakpoint";
+// Don't add external dependencies to libraries, such as compass, here.
+// Use Gruntfile.js
 
-// This is where you'll include local stuff.
-@import "libraries/libraries";
+@import "core/core";
 @import "base/base";
 @import "layout/layout";
 @import "component/component";

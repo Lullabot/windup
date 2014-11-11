@@ -2,111 +2,101 @@
 
 A starter theme for Drupal. It's pretty light.
 
-## Automation Tools
-### tl;dr
+## Installation
+
+Make sure you have npm, bundler, bower and grunt-cli installed
 
 ```bash
-gem install bundler
-bundle install
-npm install -g grunt-cli
-npm install
-grunt sass
-grunt watch
+$ sudo gem install bundler
+$ brew install node
+$ npm install -g grunt-cli
+$ npm install -g bower
 ```
 
-### Available Grunt tasks
-
-#### Compile SASS
+Then install the theme's dependencies
 
 ```bash
-grunt sass
+$ bundle install
+$ npm install
+$ bower install
 ```
 
-#### Watch for changes
+You can also enable sourcemaps and full tracebacks on error in Gruntfile.js
 
-```bash
-grunt watch
-```
-
-This task will automatically compile SASS when changes are detected in the `.scss` files.
-
-#### LiveReload
-
-Grunt watch can also be used with the [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) Chrome extension.
-
-If you're using grunt watch + livereload, your browser will refresh when Grunt spots a change to your sass files.
-That means no more punching the reload button in your browser for tiny changes during the theming process.
-
-### More Detailed Install Instructions
-
-#### Install Ruby
-These tasks requires you to have Ruby and Sass installed. If you're on OS X or
-Linux you probably already have Ruby installed; test with ```ruby -v```
-in your terminal.
-You may need to have admin/root permissions to run the installation tasks.
-
-#### Install Bundler / Required Gems
-
-```bash
-gem install bundler
-```
-
-Bundler, [bundler](http://bundler.io/v1.3/gemfile.html), is the dependency
-manager for Ruby gems, like Sass modules. By using its `bundle` command, you
-can ensure that everyone on the team is using the same versions of the
-required Sass modules.
-(Required project and their versions are specified in the `Gemfile`.)
-
-First, change directories to the theme folder, then install all the required gems with:
-
-```bash
-bundle install
-```
+Problems with Ruby? You may need something like [rvm](http://rvm.io/) to manage multiple versions of Ruby.
 
 If the dependencies for a project change, you can update them with:
 
 ```bash
-bundle update
+$ bundle update
+$ npm update
+$ bower update
 ```
 
-#### Install Grunt
+## Usage
 
-Grunt is a JavaScript task runner that helps automate things and is built on
-Node.js. In this project, it can be used to manage the SASS library dependencies
-as well as running the compass compilations. [GruntJS.com](http://gruntjs.com/)
-
-You'll need Node.js and npm to install Grunt. Visit [http://nodejs.org](http://nodejs.org)
-and click the big install button.
-
-Then install grunt globally with:
+### Compile SASS
 
 ```bash
-npm install -g grunt-cli
+$ grunt sass
 ```
 
-Finally, change directories to the theme folder and install the Node modules
-used in this project with:
+### Watch for changes
 
 ```bash
-npm install
+$ grunt watch
 ```
 
-#### Installing new Node.js modules
+This task will automatically compile SASS when changes are detected in the `.scss` files.
 
-Either add to package.json or run:
+If you're using ```grunt watch``` and click the [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) button, your browser will refresh automatically when Grunt spots a change to your sass files.
+
+### Wire Dependencies
 
 ```bash
-npm install <module> --save-dev
+$ grunt wiredep
 ```
 
-Then configure in Gruntfile.js
+This will wire the Bower components specified in ```bower.json``` into ```windup.info``` (See below).
 
-#### Installing new Sass modules
+## Installing JavaScript or CSS from The Internets
 
-Add a new line to the Gemfile and then (from the `sites/all/themes/<yourtheme>` theme folder), run:
+This will add your externally obtained JavaScript and CSS, as well as all it's necessary dependencies, into windup.info
 
 ```bash
-bundle install
+$ bower install <package> --save
+$ grunt wiredep
 ```
 
-Then edit the Gruntfile.js file and add the module into the require array.
+Where <package> is a registered package, GitHub shorthand (e.g. " desandro/masonry"), Git endpoint (e.g. "git://github.com/user/package.git") or a URL (e.g. "http://example.com/script.js").
+You can also edit ```bower.json``` directly.
+
+### Partials
+
+Packages containing .scss files will be imported into scss/component/_vendor.scss, for example:
+```bash
+$ bower install matthieua/sass-css3-mixins --save
+$ grunt wiredep
+```
+
+Will produce a _vendor.scss that looks like this
+```scss
+// bower:scss
+@import "../../bower_components/sass-css3-mixins/css3-mixins.scss";
+// endbower
+
+```
+
+## Installing Sass gems
+
+1. Add the gem to ```Gemfile```
+2. Run ```bundle update```
+3. Add the gem to the sass task's "require" array in ```Gruntfile.js```
+
+## Installing new Node.js modules
+
+These are typically used for getting Grunt plugins. Either add to package.json or run:
+
+```bash
+$ npm install <module> --save-dev
+```

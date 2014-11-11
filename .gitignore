@@ -10,9 +10,14 @@
 
 # Ignore output css
 css/style.css
+css/style.css.map
 
 # Ignore node modules
 node_modules
+npm-debug.log
+
+# Ignore bower components
+bower_components
 
 # Ignore sass cache
 .sass-cache

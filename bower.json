@@ -1,0 +1,17 @@
+{
+  "name": "windup",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Lullabot/windup",
+  "authors": [],
+  "license": "GPLv2",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
