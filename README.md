@@ -71,6 +71,11 @@ $ grunt wiredep
 Where <package> is a registered package, GitHub shorthand (e.g. " desandro/masonry"), Git endpoint (e.g. "git://github.com/user/package.git") or a URL (e.g. "http://example.com/script.js").
 You can also edit ```bower.json``` directly.
 
+## Installing Sass gems
+
+1. Add the gem to ```Gemfile```
+2. Run ```bundle update```
+
 ## Installing new Node.js modules
 
 These are typically used for getting Grunt plugins. Either add to package.json or run:
@@ -78,4 +83,3 @@ These are typically used for getting Grunt plugins. Either add to package.json o
 ```bash
 $ npm install <module> --save-dev
 ```
-

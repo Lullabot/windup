@@ -2,8 +2,7 @@
   "name": "windup",
   "version": "0.0.1",
   "homepage": "https://github.com/Lullabot/windup",
-  "authors": [
-  ],
+  "authors": [],
   "license": "GPLv2",
   "private": true,
   "ignore": [
