@@ -32,7 +32,8 @@ module.exports = function(grunt) {
     wiredep: {
       task: {
         src: [
-          'windup.info'
+          'windup.info',
+          'scss/component/_vendor.scss'
         ],
         options: {
           fileTypes: {
@@ -45,6 +46,19 @@ module.exports = function(grunt) {
               replace: {
                 js: 'scripts[] = {{filePath}}',
                 css: 'stylesheets[all][] = {{filePath}}'
+              }
+            },
+            scss: {
+              block: /(([ \t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
+              detect: {
+                css: /@import\s['"](.+css)['"]/gi,
+                sass: /@import\s['"](.+sass)['"]/gi,
+                scss: /@import\s['"](.+scss)['"]/gi
+              },
+              replace: {
+                css: '@import "{{filePath}}";',
+                sass: '@import "{{filePath}}";',
+                scss: '@import "{{filePath}}";'
               }
             }
           }

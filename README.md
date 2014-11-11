@@ -71,6 +71,22 @@ $ grunt wiredep
 Where <package> is a registered package, GitHub shorthand (e.g. " desandro/masonry"), Git endpoint (e.g. "git://github.com/user/package.git") or a URL (e.g. "http://example.com/script.js").
 You can also edit ```bower.json``` directly.
 
+### Partials
+
+Packages containing .scss files will be imported into scss/component/_vendor.scss, for example:
+```bash
+$ bower install matthieua/sass-css3-mixins --save
+$ grunt wiredep
+```
+
+Will produce a _vendor.scss that looks like this
+```scss
+// bower:scss
+@import "../../bower_components/sass-css3-mixins/css3-mixins.scss";
+// endbower
+
+```
+
 ## Installing Sass gems
 
 1. Add the gem to ```Gemfile```
