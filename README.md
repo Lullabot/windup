@@ -59,9 +59,9 @@ $ grunt wiredep
 
 This will wire the Bower components specified in ```bower.json``` into ```windup.info``` (See below).
 
-## Installing JavaScript or CSS from The Internets
+## Installing JavaScript from The Internets
 
-This will add your externally obtained JavaScript and CSS, as well as all it's necessary dependencies, into windup.info
+This will add your externally obtained JavaScript, as well as all it's necessary dependencies, into windup.info
 
 ```bash
 $ bower install <package> --save
@@ -71,7 +71,7 @@ $ grunt wiredep
 Where <package> is a registered package, GitHub shorthand (e.g. " desandro/masonry"), Git endpoint (e.g. "git://github.com/user/package.git") or a URL (e.g. "http://example.com/script.js").
 You can also edit ```bower.json``` directly.
 
-### Partials
+### Sass Partials
 
 Packages containing .scss files will be imported into scss/component/_vendor.scss, for example:
 ```bash
