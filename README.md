@@ -1,6 +1,6 @@
 # Windup
 
-A starter theme for Drupal. It's pretty light.
+A starter theme for Drupal. It's pretty light. It's made to be cloned and then hacked, please don't use me as a base theme!
 
 ## Installation
 
