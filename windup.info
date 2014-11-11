@@ -13,7 +13,6 @@ stylesheets[all][]      = system.menus.css
 
 ; DO NOT REMOVE OR EDIT BETWEEN THESE LINES
 ; bower:css
-stylesheets[all][] = bower_components/normalize.css/normalize.css
 ; endbower
 
 ; Local Stylesheets
