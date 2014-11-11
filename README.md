@@ -75,6 +75,7 @@ You can also edit ```bower.json``` directly.
 
 1. Add the gem to ```Gemfile```
 2. Run ```bundle update```
+3. Add the gem to the sass task's "require" array in ```Gruntfile.js```
 
 ## Installing new Node.js modules
 
