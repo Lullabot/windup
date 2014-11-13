@@ -100,3 +100,21 @@ These are typically used for getting Grunt plugins. Either add to package.json o
 ```bash
 $ npm install <module> --save-dev
 ```
+
+## Testing Code
+
+ 1. Install CasperJS. Dev is recommended:
+
+```bash
+$ brew install casperjs --dev
+```
+
+ 2. Write tests.
+ 3. Run tests.
+
+```bash
+$ casperjs test tests/some-test.js
+```
+
+ 4. Repeat
+ 5. Wish Hardy would work so you could write Cucumber tests.
