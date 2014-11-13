@@ -57,37 +57,28 @@ If you're using ```grunt watch``` and click the [LiveReload](https://chrome.goog
 $ grunt wiredep
 ```
 
-This will wire the Bower components specified in ```bower.json``` into ```windup.info``` (See below).
+This will wire the Bower components specified in ```bower.json``` into ```windup.info``` and ```_vendor.scss``` (See below).
 
-## Installing JavaScript from The Internets
+## Dependencies
 
-This will add your externally obtained JavaScript, as well as all it's necessary dependencies, into windup.info
+This will add your externally obtained JavaScript and CSS, as well as all it's necessary dependencies, into windup.info
 
 ```bash
 $ bower install <package> --save
 $ grunt wiredep
 ```
 
-Where <package> is a registered package, GitHub shorthand (e.g. " desandro/masonry"), Git endpoint (e.g. "git://github.com/user/package.git") or a URL (e.g. "http://example.com/script.js").
-You can also edit ```bower.json``` directly.
+Sass files will be added into scss/_vendor.scss
 
-### Sass Partials
-
-Packages containing .scss files will be imported into scss/component/_vendor.scss, for example:
 ```bash
-$ bower install matthieua/sass-css3-mixins --save
+$ bower install ericam/susy --save
 $ grunt wiredep
 ```
 
-Will produce a _vendor.scss that looks like this
-```scss
-// bower:scss
-@import "../../bower_components/sass-css3-mixins/css3-mixins.scss";
-// endbower
+Where <package> is a registered package, GitHub shorthand (e.g. " desandro/masonry"), Git endpoint (e.g. "git://github.com/user/package.git") or a URL (e.g. "http://example.com/script.js").
+You can also edit ```bower.json``` directly.
 
-```
-
-## Installing Sass gems
+## Installing Ruby gems
 
 1. Add the gem to ```Gemfile```
 2. Run ```bundle update```

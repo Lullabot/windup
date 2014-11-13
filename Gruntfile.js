@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          require: ['sass-globbing'], // e.g. ['susy', 'breakpoint'] @see README.md (Installing Sass gems)
+          require: ['sass-globbing'], // see README.md (Installing Ruby gems)
           bundleExec: true,           // Run sass with bundle exec: bundle exec sass
           sourcemap: false,           // Enable Source Maps.
           trace: false,               // Show a full traceback on error.

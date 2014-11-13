@@ -1,6 +1,7 @@
 // Don't add external dependencies to libraries, such as compass, here.
 // Use Gruntfile.js
 
+@import "vendor";
 @import "core/core";
 @import "base/base";
 @import "layout/layout";
