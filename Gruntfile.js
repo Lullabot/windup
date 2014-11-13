@@ -33,7 +33,7 @@ module.exports = function(grunt) {
       task: {
         src: [
           'windup.info',
-          'scss/component/_vendor.scss'
+          'scss/_vendor.scss'
         ],
         options: {
           fileTypes: {
