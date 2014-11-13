@@ -22,3 +22,5 @@ bower_components
 # Ignore sass cache
 .sass-cache
 
+# Ignore test logs
+.log

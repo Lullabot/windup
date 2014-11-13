@@ -103,18 +103,31 @@ $ npm install <module> --save-dev
 
 ## Testing Code
 
- 1. Install CasperJS. Dev is recommended:
+Included in the project is pre-initialized tests directory. Testing is done via
+[Hardy](http://hardy.io) by writing Cucumber tests.
+
+To get started:
+
+ 1. Install hardy locally via npm.
 
 ```bash
-$ brew install casperjs --dev
+$ npm install -g hardy
 ```
 
- 2. Write tests.
- 3. Run tests.
+ 2. Write your tests like so:
+
+```cucumber
+Feature: Awesome sample test
+As a developer I want to have kick-ass CSS tests.
+
+Scenario: Content color
+Given I visit "http://lullabot.com/"
+Then ".site-footer" should have "color" of "#C9CED1"
+```
+
+ 3. Run your tests:
 
 ```bash
-$ casperjs test tests/some-test.js
+$ cd tests
+$ hardy --browser="phantomjs" .
 ```
-
- 4. Repeat
- 5. Wish Hardy would work so you could write Cucumber tests.
