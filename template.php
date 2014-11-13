@@ -72,10 +72,12 @@ function windup_page_alter(&$page) {
     $page['content']['system_main']['#theme_wrappers'] = array_diff($page['content']['system_main']['#theme_wrappers'], array('block'));
   }
   // Remove the wrapper from views blocks.
-  foreach ($page['content'] as $key => $value) {
-    if (strpos($key, 'views_') !== FALSE) {
-      if (!empty($page['content'][$key])) {
-        $page['content'][$key]['#theme_wrappers'] = array_diff($page['content'][$key]['#theme_wrappers'], array('block'));
+  if (!empty($page['content'])) {
+    foreach ($page['content'] as $key => $value) {
+      if (strpos($key, 'views_') !== FALSE) {
+        if (!empty($page['content'][$key])) {
+          $page['content'][$key]['#theme_wrappers'] = array_diff($page['content'][$key]['#theme_wrappers'], array('block'));
+        }
       }
     }
   }

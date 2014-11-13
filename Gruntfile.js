@@ -9,8 +9,7 @@ module.exports = function(grunt) {
           imagePath: 'images',
           sourceComments: 'none',
           precision: 8,
-          unixNewlines: true,
-          style: 'compressed'
+          unixNewlines: true
         },
         files: {
           'css/style.css': 'scss/style.scss'
@@ -38,7 +37,7 @@ module.exports = function(grunt) {
       task: {
         src: [
           'windup.info',
-          'scss/component/_vendor.scss'
+          'scss/_vendor.scss'
         ],
         options: {
           fileTypes: {
