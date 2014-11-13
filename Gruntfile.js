@@ -5,16 +5,21 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          require: ['sass-globbing'], // e.g. ['susy', 'breakpoint'] @see README.md (Installing Sass gems)
-          bundleExec: true,           // Run sass with bundle exec: bundle exec sass
-          sourcemap: false,           // Enable Source Maps.
-          trace: false,               // Show a full traceback on error.
-          unixNewlines: true,         // Force Unix newlines in written files.
-          style: 'compressed'         // Output style. Can be nested, compact, compressed, expanded
+          outputStyle: 'expanded',
+          imagePath: 'images',
+          sourceComments: 'none',
+          precision: 8,
+          unixNewlines: true,
+          style: 'compressed'
         },
         files: {
           'css/style.css': 'scss/style.scss'
         }
+      }
+    },
+    clean: {
+      build: {
+        src: ['css/**/*.css']
       }
     },
     watch: {
@@ -67,10 +72,13 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-wiredep');
 
-  grunt.registerTask('default', ['sass', 'watch', 'wiredep']);
+  grunt.registerTask('default', ['build']);
+  grunt.registerTask('build', ['clean', 'sass', 'wiredep']);
+  grunt.registerTask('compile', ['sass', 'wiredep']);
 
 };
