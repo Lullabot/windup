@@ -125,7 +125,13 @@ Given I visit "http://lullabot.com/"
 Then ".site-footer" should have "color" of "#C9CED1"
 ```
 
- 3. Run your tests:
+ 3. Start selenium:
+
+```bash
+$ hardy selenium start
+```
+
+ 4. Run your tests:
 
 ```bash
 $ cd tests
