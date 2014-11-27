@@ -238,9 +238,3 @@ $smallest-unit: 1px;
     }
   }
 }
-
-body {
-  @include breakpoint('medium', 'and up', 2) {
-    background: white;
-  }
-}
