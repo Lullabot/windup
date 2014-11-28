@@ -21,10 +21,6 @@ $ npm install
 $ bower install
 ```
 
-You can also enable sourcemaps and full tracebacks on error in Gruntfile.js
-
-Problems with Ruby? You may need something like [rvm](http://rvm.io/) to manage multiple versions of Ruby.
-
 If the dependencies for a project change, you can update them with:
 
 ```bash
@@ -32,6 +28,22 @@ $ bundle update
 $ npm update
 $ bower update
 ```
+
+You can also enable sourcemaps and full tracebacks on error in Gruntfile.js
+
+If you wish to rename windup to a different name (which you probably do), YMMV but you can try:
+```bash
+$ grep -rl windup * | xargs sed -i .bk 's/windup/mytheme/g'
+$ rm *.bk
+```
+
+and then rename the files listed by 
+```bash
+find . -not -path '*/.*/*' -not -name '.*' -name '*windup*'
+```
+
+### Problems with Ruby?
+You may need something like [rvm](http://rvm.io/) to manage multiple versions of Ruby.
 
 ## Usage
 
