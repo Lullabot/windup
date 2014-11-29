@@ -3,8 +3,16 @@ description = A clean theme for Drupal 7
 core        = 7.x
 
 ; Remove Drupal core styles.
-stylesheets[all][]      = system.theme.css
+stylesheets[all][]      = system.base.css
 stylesheets[all][]      = system.menus.css
+stylesheets[all][]      = system.messages.css
+stylesheets[all][]      = system.theme.css
+stylesheets[all][]      = system.admin.css
+
+; Minimal install profile modules.
+stylesheets[all][]      = field.css
+stylesheets[all][]      = node.css
+stylesheets[all][]      = user.css
 
 ; Stylesheets
 ;
