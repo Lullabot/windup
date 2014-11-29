@@ -50,11 +50,64 @@ function windup_process_html(&$variables, $hook) {
 }
 
 /**
+ * Overrides template_preprocess_entity().
+ *
+ * This is only for entities created through Entity API.
+ */
+function windup_preprocess_entity(&$variables) {
+  $entity = $variables['elements']['#entity'];
+  $entity_type = $variables['elements']['#entity_type'];
+  list(, , $bundle) = entity_extract_ids($entity_type, $entity);
+
+  // Add the view mode to the body classes.
+  $variables['classes_array'][] = drupal_html_class($entity_type . '-' . $bundle . '-' . $variables['view_mode']);
+  $variables['classes_array'][] = drupal_html_class('view-mode--' . $variables['view_mode']);
+}
+
+/**
  * Implements hook_preprocess_node().
  */
 function windup_preprocess_node(&$variables) {
   // Add an 'unpublished' variable.
   $variables['unpublished'] = (!$variables['status']) ? TRUE : FALSE;
+
+  // Add templates for node view modes.
+  $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
+  if (!empty($variables['id'])) {
+    $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'] . '__' . $variables['id'];
+  }
+
+  // Add classes for the view mode.
+  $variables['classes_array'][] = drupal_html_class('node-' . $variables['type'] . '-' . $variables['view_mode']);
+  $variables['classes_array'][] = drupal_html_class('view-mode--' . $variables['view_mode']);
+
+  // Change the node status classes.
+  $default_classes = array(
+    'node-promoted',
+    'node-sticky',
+    'node-unpublished',
+    'node-teaser',
+    'node-preview'
+  );
+
+  foreach ($variables['classes_array'] as $key => $class) {
+    if (in_array($class, $default_classes)) {
+      unset($variables['classes_array'][$key]);
+    }
+  }
+
+  if ($variables['promote']) {
+    $variables['classes_array'][] = 'status--promoted';
+  }
+  if ($variables['sticky']) {
+    $variables['classes_array'][] = 'status--sticky';
+  }
+  if (!$variables['status']) {
+    $variables['classes_array'][] = 'status--unpublished';
+  }
+  if (isset($variables['preview'])) {
+    $variables['classes_array'][] = 'status--preview';
+  }
 }
 
 /**
