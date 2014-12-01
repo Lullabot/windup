@@ -104,3 +104,40 @@ These are typically used for getting Grunt plugins. Either add to package.json o
 ```bash
 $ npm install <module> --save-dev
 ```
+
+## Testing Code
+
+Included in the project is pre-initialized tests directory. Testing is done via
+[Hardy](http://hardy.io) by writing Cucumber tests.
+
+To get started:
+
+ 1. Install hardy locally via npm.
+
+```bash
+$ npm install -g hardy
+```
+
+ 2. Write your tests like so:
+
+```cucumber
+Feature: Awesome sample test
+As a developer I want to have kick-ass CSS tests.
+
+Scenario: Content color
+Given I visit "http://lullabot.com/"
+Then ".site-footer" should have "color" of "#C9CED1"
+```
+
+ 3. Start selenium:
+
+```bash
+$ hardy selenium start
+```
+
+ 4. Run your tests:
+
+```bash
+$ cd tests
+$ hardy --browser="phantomjs" .
+```
