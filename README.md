@@ -1,4 +1,5 @@
 # Windup
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Lullabot/windup?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 A starter theme for Drupal. It's pretty light. It's made to be cloned and then hacked, please don't use me as a base theme!
 
