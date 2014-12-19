@@ -8,7 +8,6 @@ A starter theme for Drupal. It's pretty light. It's made to be cloned and then h
 Make sure you have npm, bundler, bower and grunt-cli installed
 
 ```bash
-$ sudo gem install bundler
 $ brew install node
 $ npm install -g grunt-cli
 $ npm install -g bower
@@ -17,7 +16,6 @@ $ npm install -g bower
 Then install the theme's dependencies
 
 ```bash
-$ bundle install
 $ npm install
 $ bower install
 ```
@@ -48,10 +46,16 @@ You may need something like [rvm](http://rvm.io/) to manage multiple versions of
 
 ## Usage
 
-### Compile SASS
+### Clean + compile Sass
 
 ```bash
-$ grunt sass
+$ grunt build
+```
+
+### Compile Sass
+
+```bash
+$ grunt compile
 ```
 
 ### Watch for changes
@@ -60,9 +64,9 @@ $ grunt sass
 $ grunt watch
 ```
 
-This task will automatically compile SASS when changes are detected in the `.scss` files.
+This task will automatically compile Sass when changes are detected in the `.scss` files.
 
-If you're using ```grunt watch``` and click the [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) button, your browser will refresh automatically when Grunt spots a change to your sass files.
+If you're using ```grunt watch``` and click the [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) button, your browser will refresh automatically when Grunt spots a change to your Sass files.
 
 ### Wire Dependencies
 
@@ -95,7 +99,7 @@ You can also edit ```bower.json``` directly.
 
 1. Add the gem to ```Gemfile```
 2. Run ```bundle update```
-3. Add the gem to the sass task's "require" array in ```Gruntfile.js```
+3. Add the gem to the Sass task's "require" array in ```Gruntfile.js```
 
 ## Installing new Node.js modules
 
