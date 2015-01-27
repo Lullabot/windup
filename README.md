@@ -3,6 +3,8 @@
 
 A starter theme for Drupal. It's pretty light. It's made to be cloned and then hacked, please don't use me as a base theme!
 
+A Ruby Sass version of this theme can be found on the branch ruby-sass.
+
 ## Installation
 
 Make sure you have npm, bower and grunt-cli installed
