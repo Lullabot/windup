@@ -34,18 +34,6 @@ module.exports = function(grunt) {
     clean: {
       css: ['css', 'scss/_component.scss', 'scss/_layout.scss', 'scss/_skin.scss']
     },
-    watch: {
-      options: {
-        livereload: true
-      },
-      css: {
-        files: ['scss/**/*.scss'],
-        tasks: ['sass'],
-        options: {
-          spawn: false
-        }
-      }
-    },
     wiredep: {
       task: {
         src: [
