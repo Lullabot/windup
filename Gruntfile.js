@@ -22,7 +22,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      sass: {
+      css: {
         files:['scss/**/*.scss'],
         tasks: ['sass_globbing', 'sass'],
         options: {
