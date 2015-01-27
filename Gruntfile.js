@@ -32,7 +32,7 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-      css: ['css']
+      css: ['css', 'scss/_component.scss', 'scss/_layout.scss', 'scss/_skin.scss']
     },
     watch: {
       options: {
