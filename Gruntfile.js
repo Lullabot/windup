@@ -3,31 +3,36 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     sass: {
+      options: {
+        //sourceMap: true
+      },
       dist: {
-        options: {
-          require: ['sass-globbing'], // see README.md (Installing Ruby gems)
-          bundleExec: true,           // Run sass with bundle exec: bundle exec sass
-          sourcemap: false,           // Enable Source Maps.
-          trace: false,               // Show a full traceback on error.
-          unixNewlines: true,         // Force Unix newlines in written files.
-          style: 'compressed'         // Output style. Can be nested, compact, compressed, expanded
-        },
         files: {
           'css/style.css': 'scss/style.scss'
         }
       }
     },
+    sass_globbing: {
+      dist: {
+        files: {
+          'scss/_component.scss': 'scss/component/**/*.scss',
+          'scss/_layout.scss': 'scss/layout/**/*.scss',
+          'scss/_skin.scss': 'scss/layout/**/*.scss'
+        }
+      }
+    },
     watch: {
-      options: {
-        livereload: true
-      },
       css: {
         files: ['scss/**/*.scss'],
-        tasks: ['sass'],
+        tasks: ['sass_globbing', 'sass'],
         options: {
+          livereload: true,
           spawn: false
         }
       }
+    },
+    clean: {
+      css: ['css/style.css', 'scss/_component.scss', 'scss/_layout.scss', 'scss/_skin.scss']
     },
     wiredep: {
       task: {
@@ -67,10 +72,12 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-sass-globbing');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-wiredep');
 
-  grunt.registerTask('default', ['sass', 'watch', 'wiredep']);
+  grunt.registerTask('default', ['clean','wiredep', 'sass_globbing', 'sass']);
 
 };
