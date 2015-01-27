@@ -5,9 +5,6 @@
 .idea/
 .idea/*
 
-# Ignore rbenv project files
-.ruby-version
-
 # Ignore output css
 css/style.css
 css/style.css.map
@@ -22,3 +19,7 @@ bower_components
 # Ignore sass cache
 .sass-cache
 
+# Ignore files that get auto filled
+scss/_component.scss
+scss/_layout.scss
+scss/_skin.scss
