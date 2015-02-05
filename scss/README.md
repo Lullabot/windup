@@ -95,6 +95,13 @@ E.g.:
 }
 ```
 
+### Extending
+
+While Sass' `@extend` functionality is pretty, it causes a lot of maintenance
+nightmares, so use it sparingly. The one absolute rule is:
+
+*Do not `@extend` a selector onto a selector in a different file.*
+
 ## Class Naming Conventions
 
 This project leverages a *Component*-*Element*-*Modifier* syntax for naming
