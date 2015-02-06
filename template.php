@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Harbor base theme template.php
+ * Windup starter theme template.php
  *
  * Contains preprocessing, processing, and anything else you might need to do.
  */
