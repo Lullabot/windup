@@ -87,6 +87,26 @@ $ grunt wiredep
 Where <package> is a registered package, GitHub shorthand (e.g. " desandro/masonry"), Git endpoint (e.g. "git://github.com/user/package.git") or a URL (e.g. "http://example.com/script.js").
 You can also edit ```bower.json``` directly.
 
+## Template Suggestions and Classes
+Template suggestions across all core (Node, User, Taxonomy Term and Comment) and Entity API defined entity types have been normalised to the following:
+
+```
+<entity type>
+<entity type>__view_mode__<view mode>
+<entity_type>__<bundle>
+<entity_type>__<bundle>__<view mode>
+<entity_type>__<entity id>
+<entity_type>__<entity id>__<view mode>
+```
+
+There is one exception to this. The core user entity, [uses "user-profile" as the entity type for template suggestions](https://api.drupal.org/api/drupal/modules%21user%21user.module/function/user_view/7) instead of "user".
+
+The following classes can be found on all the above rendered entities:
+```
+<entity type> <entity type>--<id> type--<bundle> view-mode--<view mode>
+
+```
+
 ## Installing new Node.js modules
 
 These are typically used for getting Grunt plugins. Either add to package.json or run:
