@@ -103,7 +103,7 @@ There is one exception to this. The core user entity, [uses "user-profile" as th
 
 The following classes can be found on all the above rendered entities:
 ```
-<entity type> <entity type>--<id> type--<bundle> view-mode--<view mode>
+<entity type> <entity type>-<id> type-<bundle> view-mode-<view mode>
 
 ```
 

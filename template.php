@@ -62,9 +62,9 @@ function windup_preprocess_entity(&$variables) {
   $variables['theme_hook_suggestions'] = _windup_default_template_suggestions($variables);
 
   $variables['classes_array'][] = drupal_html_class($entity_type);
-  $variables['classes_array'][] = drupal_html_class($entity_type . '--' . $variables['id']);
-  $variables['classes_array'][] = drupal_html_class('type--' . $bundle);
-  $variables['classes_array'][] = drupal_html_class('view-mode--' . $variables['view_mode']);
+  $variables['classes_array'][] = drupal_html_class($entity_type . '-' . $variables['id']);
+  $variables['classes_array'][] = drupal_html_class('type-' . $bundle);
+  $variables['classes_array'][] = drupal_html_class('view-mode-' . $variables['view_mode']);
 }
 
 /**
@@ -76,8 +76,8 @@ function windup_preprocess_node(&$variables) {
 
   $variables['theme_hook_suggestions'] = _windup_default_template_suggestions($variables);
 
-  $variables['classes_array'][] = drupal_html_class('type--' . $variables['type']);
-  $variables['classes_array'][] = drupal_html_class('view-mode--' . $variables['view_mode']);
+  $variables['classes_array'][] = drupal_html_class('type-' . $variables['type']);
+  $variables['classes_array'][] = drupal_html_class('view-mode-' . $variables['view_mode']);
 
   // Remove unwanted classes.
   $default_classes = array(
@@ -92,16 +92,16 @@ function windup_preprocess_node(&$variables) {
   _windup_remove_classes($default_classes, $variables);
 
   if ($variables['promote']) {
-    $variables['classes_array'][] = 'status--promoted';
+    $variables['classes_array'][] = 'status-promoted';
   }
   if ($variables['sticky']) {
-    $variables['classes_array'][] = 'status--sticky';
+    $variables['classes_array'][] = 'status-sticky';
   }
   if (!$variables['status']) {
-    $variables['classes_array'][] = 'status--unpublished';
+    $variables['classes_array'][] = 'status-unpublished';
   }
   if (isset($variables['preview'])) {
-    $variables['classes_array'][] = 'status--preview';
+    $variables['classes_array'][] = 'status-preview';
   }
 }
 
@@ -111,9 +111,9 @@ function windup_preprocess_node(&$variables) {
 function windup_preprocess_taxonomy_term(&$variables) {
   $variables['theme_hook_suggestions'] = _windup_default_template_suggestions($variables);
 
-  $variables['classes_array'][] = drupal_html_class('taxonomy_term--' . $variables['id']);
-  $variables['classes_array'][] = drupal_html_class('type--taxonomy_term');
-  $variables['classes_array'][] = drupal_html_class('view-mode--' . $variables['view_mode']);
+  $variables['classes_array'][] = drupal_html_class('taxonomy_term-' . $variables['id']);
+  $variables['classes_array'][] = drupal_html_class('type-taxonomy_term');
+  $variables['classes_array'][] = drupal_html_class('view-mode-' . $variables['view_mode']);
 }
 
 /**
@@ -125,9 +125,9 @@ function windup_preprocess_user_profile(&$variables) {
   _windup_remove_classes(array('user-profile'), $variables);
 
   $variables['classes_array'][] = drupal_html_class('user');
-  $variables['classes_array'][] = drupal_html_class('user--' . $variables['id']);
-  $variables['classes_array'][] = drupal_html_class('type--user');
-  $variables['classes_array'][] = drupal_html_class('view-mode--' . $variables['elements']['#view_mode']);
+  $variables['classes_array'][] = drupal_html_class('user-' . $variables['id']);
+  $variables['classes_array'][] = drupal_html_class('type-user');
+  $variables['classes_array'][] = drupal_html_class('view-mode-' . $variables['elements']['#view_mode']);
 }
 
 /**
@@ -136,9 +136,9 @@ function windup_preprocess_user_profile(&$variables) {
 function windup_preprocess_comment(&$variables) {
   $variables['theme_hook_suggestions'] = _windup_default_template_suggestions($variables);
 
-  $variables['classes_array'][] = drupal_html_class('comment--' . $variables['id']);
-  $variables['classes_array'][] = drupal_html_class('type--comment');
-  $variables['classes_array'][] = drupal_html_class('view-mode--' . $variables['elements']['#view_mode']);
+  $variables['classes_array'][] = drupal_html_class('comment-' . $variables['id']);
+  $variables['classes_array'][] = drupal_html_class('type-comment');
+  $variables['classes_array'][] = drupal_html_class('view-mode-' . $variables['elements']['#view_mode']);
 }
 
 /**
