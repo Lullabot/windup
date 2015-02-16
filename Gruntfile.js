@@ -19,6 +19,9 @@ module.exports = function(grunt) {
           'scss/_layout.scss': 'scss/layout/**/*.scss',
           'scss/_skin.scss': 'scss/layout/**/*.scss'
         }
+      },
+      options: {
+        useSingleQuotes: true
       }
     },
     watch: {
@@ -69,6 +72,21 @@ module.exports = function(grunt) {
           }
         }
       }
+    },
+    wiredep_create_bower: {
+      dist: {}
+    }
+  });
+
+  grunt.registerMultiTask('wiredep_create_bower', 'Creates the bower_components directory if it does not exist. This' +
+  'stops wiredep from failing when there are no bower packages.', function() {
+    var fs = require('fs');
+    var path = require('path');
+    var bower_config = require('bower-config');
+    var cwd = process.cwd();
+    var directory = path.join(cwd, (bower_config.read(cwd).directory || 'bower_components'));
+    if (!fs.existsSync(directory)) {
+      grunt.file.mkdir(directory);
     }
   });
 
@@ -78,6 +96,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-wiredep');
 
-  grunt.registerTask('default', ['clean','wiredep', 'sass_globbing', 'sass']);
+  grunt.registerTask('default', ['clean','wiredep_create_bower', 'wiredep', 'sass_globbing', 'sass']);
 
 };
