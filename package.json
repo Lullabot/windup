@@ -2,11 +2,12 @@
   "name": "windup",
   "version": "0.1.0",
   "devDependencies": {
-    "grunt": "~0.4",
+    "bower-config": "^0.5.2",
+    "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-sass": "git://github.com/justafish/grunt-sass",
-    "grunt-sass-globbing": "^1.0.3",
-    "grunt-wiredep": "^1.9.0"
+    "grunt-sass": "^0.18.0",
+    "grunt-sass-globbing": "^1.1.0",
+    "grunt-wiredep": "^2.0.0"
   }
 }
