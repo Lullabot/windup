@@ -17,7 +17,7 @@ module.exports = function(grunt) {
         files: {
           'scss/_component.scss': 'scss/component/**/*.scss',
           'scss/_layout.scss': 'scss/layout/**/*.scss',
-          'scss/_skin.scss': 'scss/layout/**/*.scss'
+          'scss/_skin.scss': 'scss/skin/**/*.scss'
         }
       },
       options: {
