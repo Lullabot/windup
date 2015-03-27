@@ -15,6 +15,7 @@ module.exports = function(grunt) {
     sass_globbing: {
       dist: {
         files: {
+          'scss/_base.scss': 'scss/base/**/*.scss',
           'scss/_component.scss': 'scss/component/**/*.scss',
           'scss/_layout.scss': 'scss/layout/**/*.scss',
           'scss/_skin.scss': 'scss/skin/**/*.scss'
@@ -35,7 +36,7 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-      css: ['css/style.css', 'scss/_component.scss', 'scss/_layout.scss', 'scss/_skin.scss']
+      css: ['css/style.css', 'scss/_base.scss', 'scss/_component.scss', 'scss/_layout.scss', 'scss/_skin.scss']
     },
     wiredep: {
       task: {
