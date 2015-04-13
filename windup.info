@@ -3,8 +3,42 @@ description = A clean theme for Drupal 7
 core        = 7.x
 
 ; Remove Drupal core styles.
+stylesheets[all][]      = aggregator.css
+stylesheets[all][]      = block.css
+stylesheets[all][]      = book.css
+stylesheets[all][]      = comment.css
+stylesheets[all][]      = dblog.css
+stylesheets[all][]      = field.css
+stylesheets[all][]      = file.css
+stylesheets[all][]      = filter.css
+stylesheets[all][]      = forum.css
+stylesheets[all][]      = help.css
+stylesheets[all][]      = menu.css
+stylesheets[all][]      = node.css
+stylesheets[all][]      = openid.css
+stylesheets[all][]      = poll.css
+stylesheets[all][]      = profile.css
+stylesheets[all][]      = search.css
+stylesheets[all][]      = statistics.css
+stylesheets[all][]      = syslog.css
+stylesheets[all][]      = admin.css
+stylesheets[all][]      = maintenance.css
+stylesheets[all][]      = system.css
+stylesheets[all][]      = system.admin.css
+stylesheets[all][]      = system.base.css
+stylesheets[all][]      = system.maintenance.css
+stylesheets[all][]      = system.messages.css
 stylesheets[all][]      = system.theme.css
 stylesheets[all][]      = system.menus.css
+stylesheets[all][]      = taxonomy.css
+stylesheets[all][]      = tracker.css
+stylesheets[all][]      = update.css
+stylesheets[all][]      = user.css
+stylesheets[all][]      = views.css
+stylesheets[all][]      = ctools.css
+stylesheets[all][]      = panels.css
+stylesheets[all][]      = jquery.ui.core.css
+stylesheets[all][]      = jquery.ui.theme.css
 
 ; Stylesheets
 ;
