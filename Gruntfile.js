@@ -1,3 +1,5 @@
+var autoprefixer = require('autoprefixer-core');
+
 module.exports = function(grunt) {
 
   grunt.initConfig({
@@ -27,7 +29,7 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: ['scss/**/*.scss'],
-        tasks: ['sass_globbing', 'sass'],
+        tasks: ['sass_globbing', 'sass', 'postcss'],
         options: {
           livereload: true,
           spawn: false
@@ -75,6 +77,15 @@ module.exports = function(grunt) {
     },
     wiredep_create_bower: {
       dist: {}
+    },
+    postcss: {
+        options: {
+            processors: [
+              // List of supported browsers. Use syntax from https://github.com/ai/browserslist#queries
+              autoprefixer({ browsers: ['last 3 version, IE >= 9'] }).postcss
+            ]
+        },
+        dist: { src: 'css/*.css' }
     }
   });
 
@@ -95,7 +106,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-wiredep');
+  grunt.loadNpmTasks('grunt-postcss');
 
-  grunt.registerTask('default', ['clean','wiredep_create_bower', 'wiredep', 'sass_globbing', 'sass']);
+  grunt.registerTask('default', ['clean','wiredep_create_bower', 'wiredep', 'sass_globbing', 'sass', 'postcss']);
 
 };

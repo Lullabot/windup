@@ -60,6 +60,10 @@ This task will automatically compile Sass when changes are detected in the `.scs
 
 If you're using ```grunt watch``` and click the [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) button, your browser will refresh automatically when Grunt spots a change to your sass files.
 
+### Autoprefixer
+
+Windup uses [Autoprefixer](https://github.com/postcss/autoprefixer) to automatically add browser prefixes to your css properties based on your configuration. By default, autoprefixer is set to support the last 3 versions of browsers, and IE9 and up. You can modify this within Gruntfile.js using the the [syntax documented on the browserlist plugin page](https://github.com/ai/browserslist#queries).
+
 ### Wire Dependencies
 
 ```bash
