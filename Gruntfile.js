@@ -1,5 +1,3 @@
-var autoprefixer = require('autoprefixer-core');
-
 module.exports = function(grunt) {
 
   grunt.initConfig({
@@ -29,7 +27,7 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: ['scss/**/*.scss'],
-        tasks: ['sass_globbing', 'sass', 'postcss'],
+        tasks: ['sass_globbing', 'sass', 'autoprefixer'],
         options: {
           livereload: true,
           spawn: false
@@ -78,15 +76,17 @@ module.exports = function(grunt) {
     wiredep_create_bower: {
       dist: {}
     },
-    postcss: {
-        options: {
-            processors: [
-              // List of supported browsers. Use syntax from https://github.com/ai/browserslist#queries
-              autoprefixer({ browsers: ['last 3 version, IE >= 9'] }).postcss
-            ]
-        },
-        dist: { src: 'css/*.css' }
-    }
+    autoprefixer: {
+      options: {
+        browsers: ['last 3 versions', 'ie 9']
+        // For testing purposes, use this config
+        // browsers: ['opera 12', 'ff 15', 'chrome 25']
+      },
+      single_file: {
+        src: 'css/style.css',
+        dest: 'css/style.css'
+      },
+    },
   });
 
   grunt.registerMultiTask('wiredep_create_bower', 'Creates the bower_components directory if it does not exist. This' +
@@ -106,8 +106,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-wiredep');
-  grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-autoprefixer');
 
-  grunt.registerTask('default', ['clean','wiredep_create_bower', 'wiredep', 'sass_globbing', 'sass', 'postcss']);
+  grunt.registerTask('default', ['clean','wiredep_create_bower', 'wiredep', 'sass_globbing', 'sass', 'autoprefixer']);
 
 };
