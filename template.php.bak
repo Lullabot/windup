@@ -7,67 +7,6 @@
  */
 
 /**
- * Override or insert variables into the html template.
- *
- * @param array $variables
- *   An array of variables to pass to the theme template.
- * @param string $hook
- *   The name of the template being rendered. This is usually "html," but can
- *   also be "maintenance_page" since windup_preprocess_maintenance_page()
- *   calls this function to have consistent variables.
- */
-function windup_preprocess_html(&$variables, $hook) {
-  // Attributes for html element.
-  $variables['html_attributes_array'] = array(
-    'lang' => $variables['language']->language,
-    'dir' => $variables['language']->dir,
-  );
-
-  // Send X-UA-Compatible HTTP header to force IE to use the most recent
-  // rendering engine.
-  // This also prevents the IE compatibility mode button appearing when using
-  // conditional classes on the html tag.
-  if (drupal_get_http_header('X-UA-Compatible') === NULL) {
-    drupal_add_http_header('X-UA-Compatible', 'IE=edge');
-  }
-
-  // Return early so the maintenance page does not call any code we write below.
-  if ($hook != 'html') {
-    return;
-  }
-}
-
-/**
- * Override or insert variables into the html template.
- *
- * @param array $variables
- *   An array of variables to pass to the theme template.
- * @param string $hook
- *   The name of the template being rendered. ("html" in this case.)
- */
-function windup_process_html(&$variables, $hook) {
-  $variables['html_attributes'] = drupal_attributes($variables['html_attributes_array']);
-}
-
-/**
- * Overrides template_preprocess_entity().
- *
- * This is only for entities created through Entity API.
- */
-function windup_preprocess_entity(&$variables) {
-  $entity = $variables['elements']['#entity'];
-  $entity_type = $variables['elements']['#entity_type'];
-  list(, , $bundle) = entity_extract_ids($entity_type, $entity);
-
-  $variables['theme_hook_suggestions'] = _windup_default_template_suggestions($variables);
-
-  $variables['classes_array'][] = drupal_html_class($entity_type);
-  $variables['classes_array'][] = drupal_html_class($entity_type . '-' . $variables['id']);
-  $variables['classes_array'][] = drupal_html_class('type-' . $bundle);
-  $variables['classes_array'][] = drupal_html_class('view-mode-' . $variables['view_mode']);
-}
-
-/**
  * Implements hook_preprocess_node().
  */
 function windup_preprocess_node(&$variables) {
