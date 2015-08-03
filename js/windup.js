@@ -1,4 +1,5 @@
 (function ($) {
+  "use strict";
 
   /**
    * Example function.
@@ -8,6 +9,6 @@
     attach: function(context) {
       alert('Hello, world!');
     }
-  }
+  };
 
 })(jQuery);
