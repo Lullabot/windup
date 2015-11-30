@@ -1,0 +1,20 @@
+name: Windup
+description: 'A clean theme for Drupal 8'
+core: 8.x
+type: theme
+screenshot: screenshot.png
+stylesheets-remove:
+  - core/assets/vendor/normalize-css/normalize.css
+  - core/modules/system/css/system.theme.css
+  - core/modules/system/css/system.menus.css
+
+libraries:
+  - windup/global-styling
+#  - windup/global-js
+
+regions:
+  header: Header
+  help: Help
+  content: Content
+  footer: Footer
+  behind_curtain: Behind Curtain
