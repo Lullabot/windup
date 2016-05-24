@@ -1,0 +1,7 @@
+name: Windup
+type: theme
+base theme: false
+description: "A starter theme for Drupal, it's pretty light"
+package: Custom
+core: 8.x
+
