@@ -1,10 +1,15 @@
-module.exports = function(grunt) {
+/* eslint-env node */
+/* global require */
+
+'use strict';
+
+module.exports = function (grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     sass: {
       options: {
-        //sourceMap: true
+        // sourceMap: true
       },
       dist: {
         files: {
@@ -27,7 +32,7 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: ['scss/**/*.scss'],
-        tasks: ['sass_globbing', 'sass', 'autoprefixer'],
+        tasks: ['sasslint', 'sass_globbing', 'sass', 'autoprefixer'],
         options: {
           livereload: true,
           spawn: false
@@ -85,7 +90,14 @@ module.exports = function(grunt) {
       single_file: {
         src: 'css/style.css',
         dest: 'css/style.css'
+      }
+    },
+    sasslint: {
+      options: {
+        configFile: '.sass-lint.yml',
+        formatter: 'table'
       },
+      target: ['scss/**/*.scss']
     },
     eslint: {
       options: {
@@ -96,7 +108,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerMultiTask('wiredep_create_bower', 'Creates the bower_components directory if it does not exist. This' +
-  'stops wiredep from failing when there are no bower packages.', function() {
+  'stops wiredep from failing when there are no bower packages.', function () {
     var fs = require('fs');
     var path = require('path');
     var bower_config = require('bower-config');
@@ -114,7 +126,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-wiredep');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-eslint');
+  grunt.loadNpmTasks('grunt-sass-lint');
 
-  grunt.registerTask('default', ['clean', 'wiredep_create_bower', 'wiredep', 'sass_globbing', 'sass', 'autoprefixer', 'eslint']);
+  grunt.registerTask('default', ['clean', 'wiredep_create_bower', 'wiredep', 'sasslint', 'sass_globbing', 'sass', 'autoprefixer', 'eslint']);
 
 };
