@@ -8,7 +8,7 @@
    */
   Drupal.behaviors.sayHello = {
     attach: function (context) {
-      alert('Hello, world!');
+      console.log('Hello, world!');
     }
   };
 

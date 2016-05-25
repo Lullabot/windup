@@ -1,0 +1,6 @@
+global:
+  css:
+    compiled:
+      css/style.css: {}
+  js:
+    js/windup.js: {}
