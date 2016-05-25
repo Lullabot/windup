@@ -1,10 +1,15 @@
 name: Windup
 type: theme
 base theme: false
-description: "A starter theme for Drupal, it's pretty light"
+description: "A starter theme for Drupal. It's pretty light. Do not use as a base theme."
+screenshot: screenshot.png
 package: Custom
 core: 8.x
+libraries:
+  - windup/global
 stylesheets-remove:
   - core/assets/vendor/normalize-css/normalize.css
   - core/modules/system/css/system.theme.css
   - core/modules/system/css/system.menus.css
+regions:
+  content: Content # the content region is required
