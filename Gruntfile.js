@@ -122,6 +122,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-eslint');
 
-  grunt.registerTask('default', ['clean','wiredep_create_bower', 'wiredep', 'sass_globbing', 'sass', 'autoprefixer', 'csslint', 'eslint']);
+  grunt.registerTask('default', ['clean', 'wiredep_create_bower', 'wiredep', 'sass_globbing', 'sass', 'autoprefixer', 'csslint', 'eslint']);
 
 };
