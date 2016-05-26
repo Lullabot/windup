@@ -23,11 +23,21 @@
  * @see template_preprocess_taxonomy_term()
  */
 #}
-<div{{ attributes }}>
+{% set attributes_rendered %}
+  {{ attributes }}
+{% endset %}
+
+{% if attributes_rendered %}
+<div{{ attributes_rendered }}>
+{% endif %}
+
   {{ title_prefix }}
   {% if not page %}
     <h2><a href="{{ url }}">{{ name }}</a></h2>
   {% endif %}
   {{ title_suffix }}
   {{ content }}
+
+{% if attributes_rendered %}
 </div>
+{% endif %}

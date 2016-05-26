@@ -19,8 +19,18 @@
  * @see field.html.twig
  */
 #}
-<span{{ attributes }}>
+{% set attributes_rendered %}
+  {{ attributes }}
+{% endset %}
+
+{% if attributes_rendered %}
+<span{{ attributes_rendered }}>
+{% endif %}
+
   {%- for item in items -%}
     {{ item.content }}
   {%- endfor -%}
+
+{% if attributes_rendered %}
 </span>
+{% endif %}
