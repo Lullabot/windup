@@ -11,11 +11,13 @@
  * themed in menu-local-task.html.twig.
  */
 #}
-{% if primary %}
-  <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
-  <ul>{{ primary }}</ul>
-{% endif %}
-{% if secondary %}
-  <h2 class="visually-hidden">{{ 'Secondary tabs'|t }}</h2>
-  <ul>{{ secondary }}</ul>
-{% endif %}
+<div class="admin-tabs__wrapper">
+  {% if primary %}
+    <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
+    <ul class="admin-tabs--primary">{{ primary }}</ul>
+  {% endif %}
+  {% if secondary %}
+    <h2 class="visually-hidden">{{ 'Secondary tabs'|t }}</h2>
+    <ul class="admin-tabs--secondary">{{ secondary }}</ul>
+  {% endif %}
+</div>
