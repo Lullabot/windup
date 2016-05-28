@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: ['scss/**/*.scss'],
-        tasks: ['sass_globbing', 'sass', 'autoprefixer'],
+        tasks: ['sasslint', 'sass_globbing', 'sass', 'autoprefixer'],
         options: {
           livereload: true,
           spawn: false
@@ -87,6 +87,13 @@ module.exports = function(grunt) {
         dest: 'css/style.css'
       },
     },
+    sasslint: {
+      options: {
+        configFile: '.sass-lint.yml',
+        formatter: 'table',
+      },
+      target: ['scss/**/*.scss']
+    },
     eslint: {
       options: {
         configFile: '.eslintrc'
@@ -113,8 +120,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-wiredep');
   grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-eslint');
 
-  grunt.registerTask('default', ['clean','wiredep_create_bower', 'wiredep', 'sass_globbing', 'sass', 'autoprefixer', 'eslint']);
+  grunt.registerTask('default', ['clean','wiredep_create_bower', 'wiredep', 'sasslint', 'sass_globbing', 'sass', 'autoprefixer', 'eslint']);
 
 };
