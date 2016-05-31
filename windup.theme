@@ -23,6 +23,30 @@ function windup_preprocess_html(&$variables, $hook) {
   }
 }
 
+function windup_preprocess_node(&$variables, $hook) {
+  // Add an unpublished variable
+  $variables['unpublished'] = FALSE;
+  if ($variables['node']->isPublished() != TRUE) {
+    $variables['unpublished'] = TRUE;
+  }
+
+}
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function windup_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+
+  // Create a page suggestion per content type.
+  if ($hook === 'page') {
+    if ($node = \Drupal::routeMatch()->getParameter('node')) {
+      $content_type = $node->bundle();
+      $suggestions[] = 'page__' . $content_type;
+    }
+  }
+
+}
+
 /**
  * Implements template_preprocess_menu_local_task().
  */
