@@ -12,18 +12,21 @@
  * @see template_preprocess_region()
  */
 #}
-{% set attributes_string %}
-  {{ attributes }}
-{% endset %}
-
 {% if content %}
 
+  {% set attributes_string %}
+    {{ attributes }}
+  {% endset %}
+
   {% if attributes_string %}
-    <div{{ attributes }}>
-      {{ content }}
-    </div>
-  {% else %}
+  <div{{ attributes_string }}>
+  {% endif %}
+
     {{ content }}
+
+  {% if attributes_string %}
+  </div>
   {% endif %}
 
 {% endif %}
+

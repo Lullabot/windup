@@ -36,21 +36,30 @@
  * @see template_preprocess_field()
  */
 #}
+{% set attributes_rendered %}
+  {{ attributes }}
+{% endset %}
 
 {% if label_hidden %}
   {% if multiple %}
-    <div{{ attributes }}>
+    {% if attributes_rendered %}
+      <div{{ attributes }}>
+    {% endif %}
       {% for item in items %}
         <div{{ item.attributes }}>{{ item.content }}</div>
       {% endfor %}
-    </div>
+    {% if attributes_rendered %}
+      </div>
+    {% endif %}
   {% else %}
     {% for item in items %}
       <div{{ attributes }}>{{ item.content }}</div>
     {% endfor %}
   {% endif %}
 {% else %}
-  <div{{ attributes }}>
+  {% if attributes_rendered %}
+    <div{{ attributes }}>
+  {% endif %}
     <div{{ title_attributes }}>{{ label }}</div>
     {% if multiple %}
       <div>
@@ -61,5 +70,7 @@
     {% if multiple %}
       </div>
     {% endif %}
-  </div>
+  {% if attributes_rendered %}
+    </div>
+  {% endif %}
 {% endif %}

@@ -10,6 +10,16 @@
  * @see template_preprocess_datetime_form()
  */
 #}
-<div{{ attributes }}>
+{% set attributes_rendered %}
+  {{ attributes }}
+{% endset %}
+
+{% if attributes_rendered %}
+<div{{ attributes_rendered }}>
+{% endif %}
+
   {{ content }}
+
+{% if attributes_rendered %}
 </div>
+{% endif %}

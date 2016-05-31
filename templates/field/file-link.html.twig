@@ -10,4 +10,16 @@
  * @see template_preprocess_file_link()
  */
 #}
-<span{{ attributes }}>{{ link }}</span>
+{% set attributes_rendered %}
+  {{ attributes }}
+{% endset %}
+
+{% if attributes_rendered %}
+<span{{ attributes_rendered }}>
+{% endif %}
+
+{{ link }}
+
+{% if attributes_rendered %}
+</span>
+{% endif %}

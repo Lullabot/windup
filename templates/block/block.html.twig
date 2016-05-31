@@ -25,7 +25,14 @@
  * @see template_preprocess_block()
  */
 #}
-<div{{ attributes }}>
+{% set attributes_rendered %}
+  {{ attributes }}
+{% endset %}
+
+{% if attributes_rendered %}
+<div{{ attributes_rendered }}>
+{% endif %}
+
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes }}>{{ label }}</h2>
@@ -34,4 +41,7 @@
   {% block content %}
     {{ content }}
   {% endblock %}
+
+{% if attributes_rendered %}
 </div>
+{% endif %}
