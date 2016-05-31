@@ -74,7 +74,7 @@ module.exports = function (grunt) {
                 sass: '@import "{{filePath}}";',
                 scss: '@import "{{filePath}}";'
               }
-            }
+            },
           }
         }
       }
