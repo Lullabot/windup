@@ -16,7 +16,14 @@
  * @see template_preprocess_user()
  */
 #}
-<article{{ attributes }}>
+{%
+  set classes = [
+    'user',
+    'user--' ~ user.getDisplayName()
+  ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
   {% if content %}
     {{- content -}}
   {% endif %}
