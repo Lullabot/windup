@@ -23,21 +23,18 @@
  * @see template_preprocess_taxonomy_term()
  */
 #}
-{% set attributes_rendered %}
-  {{ attributes }}
-{% endset %}
-
-{% if attributes_rendered %}
-<div{{ attributes_rendered }}>
-{% endif %}
-
+{%
+  set classes = [
+    'taxonomy-term',
+    'taxonomy-term--' ~ term.id|clean_class,
+    'vocabulary-' ~ term.bundle|clean_class
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if not page %}
     <h2><a href="{{ url }}">{{ name }}</a></h2>
   {% endif %}
   {{ title_suffix }}
   {{ content }}
-
-{% if attributes_rendered %}
 </div>
-{% endif %}
