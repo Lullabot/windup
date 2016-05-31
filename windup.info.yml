@@ -6,6 +6,7 @@ screenshot: screenshot.png
 package: Custom
 core: 8.x
 libraries:
+  - windup/bower
   - windup/global
 stylesheets-remove:
   - core/assets/vendor/normalize-css/normalize.css

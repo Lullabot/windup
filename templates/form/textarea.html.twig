@@ -14,14 +14,12 @@
  */
 #}
 
-{% wrapper_attributes.removeClass('form-textarea-wrapper') %}
-
 {% set wrapper_attributes_rendered %}
   {{ wrapper_attributes }}
 {% endset %}
 
 {% if wrapper_attributes_rendered %}
-<div{{ wrapper_attributes_rendered }}>
+<div{{ wrapper_attributes }}>
 {% endif %}
 
   <textarea{{ attributes }}>{{ value }}</textarea>

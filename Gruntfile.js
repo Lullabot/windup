@@ -45,20 +45,21 @@ module.exports = function (grunt) {
     wiredep: {
       task: {
         src: [
-          'windup.info',
+          'windup.libraries.yml',
           'scss/_vendor.scss'
         ],
+        exclude: ['/jquery.js'],
         options: {
           fileTypes: {
-            info: {
-              block: /(([ \t]*);\s*bower:*(\S*))(\n|\r|.)*?(;\s*endbower)/gi,
+            yaml: {
+              block: /(([ \t]*)#\s*bower:*(\S*))(\n|\r|.)*?(#\s*endbower)/gi,
               detect: {
-                js: /scripts\[\] = \s(.+js)/gi,
-                css: /stylesheets\[all\]\[\] = \s(.+css)/gi
+                js: /-\s(.+js)/gi,
+                css: /-\s(.+css)/gi
               },
               replace: {
-                js: 'scripts[] = {{filePath}}',
-                css: 'stylesheets[all][] = {{filePath}}'
+                js: '{{filePath}}: {}',
+                css: '{{filePath}}: {}'
               }
             },
             scss: {

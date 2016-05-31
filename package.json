@@ -13,7 +13,7 @@
     "grunt-sass": "^1.2.0",
     "grunt-sass-globbing": "^1.1.0",
     "grunt-sass-lint": "^0.2.0",
-    "grunt-wiredep": "^2.0.0",
+    "grunt-wiredep": "^3.0.1",
     "node-sass": "^3.7.0"
   },
   "scripts": {
