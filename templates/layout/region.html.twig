@@ -19,12 +19,12 @@
   {% endset %}
 
   {% if attributes_string %}
-  <div{{ attributes }}>
+  <div{{ attributes_string }}>
   {% endif %}
 
     {{ content }}
 
-  {% if attributes_rendered %}
+  {% if attributes_string %}
   </div>
   {% endif %}
 
