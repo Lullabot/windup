@@ -9,10 +9,8 @@ bower:
   js:
     # DO NOT REMOVE OR EDIT BETWEEN THESE LINES
     # bower:js
-    bower_components/flexslider/jquery.flexslider.js: {}
     # endbower
   css:
     compiled:
       # bower:css
-      bower_components/flexslider/flexslider.css: {}
       # endbower
