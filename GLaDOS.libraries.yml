@@ -3,7 +3,7 @@ global:
     compiled:
       css/style.css: {}
   js:
-    js/windup.js: {}
+    js/GLaDOS.js: {}
 
 bower:
   js:

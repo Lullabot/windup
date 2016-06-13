@@ -1,7 +1,7 @@
 {
-  "name": "windup",
+  "name": "GLaDOS",
   "version": "0.1.0",
-  "repository": "https://github.com/Lullabot/windup",
+  "repository": "https://github.com/Lullabot/GLaDOS",
   "license": "GPLv2",
   "devDependencies": {
     "bower-config": "^0.5.2",

@@ -45,7 +45,7 @@ module.exports = function (grunt) {
     wiredep: {
       task: {
         src: [
-          'windup.libraries.yml',
+          'GLaDOS.libraries.yml',
           'scss/_vendor.scss'
         ],
         exclude: ['/jquery.js'],
@@ -104,7 +104,7 @@ module.exports = function (grunt) {
       options: {
         configFile: '.eslintrc'
       },
-      target: ['js/windup.js']
+      target: ['js/GLaDOS.js']
     }
   });
 

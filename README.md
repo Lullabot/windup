@@ -1,5 +1,5 @@
 # Windup
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Lullabot/windup?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Lullabot/GLaDOS?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 A starter theme for Drupal. It's pretty light. It's made to be cloned and then hacked, please don't use me as a base theme!
 
@@ -31,15 +31,15 @@ $ bower update
 
 You can also enable sourcemaps and full tracebacks on error in Gruntfile.js
 
-If you wish to rename windup to a different name (which you probably do), YMMV but you can try:
+If you wish to rename GLaDOS to a different name (which you probably do), YMMV but you can try:
 ```bash
-$ grep -rl windup * | xargs sed -i .bk 's/windup/mytheme/g'
+$ grep -rl GLaDOS * | xargs sed -i .bk 's/GLaDOS/mytheme/g'
 $ rm *.bk
 ```
 
 and then rename the files listed by 
 ```bash
-find . -not -path '*/.*/*' -not -name '.*' -name '*windup*'
+find . -not -path '*/.*/*' -not -name '.*' -name '*GLaDOS*'
 ```
 
 ## Usage
@@ -70,11 +70,11 @@ Windup uses [Autoprefixer](https://github.com/postcss/autoprefixer) to automatic
 $ grunt wiredep
 ```
 
-This will wire the Bower components specified in ```bower.json``` into ```windup.info``` and ```_vendor.scss``` (See below).
+This will wire the Bower components specified in ```bower.json``` into ```GLaDOS.info``` and ```_vendor.scss``` (See below).
 
 ## Dependencies
 
-This will add your externally obtained JavaScript and CSS, as well as all it's necessary dependencies, into windup.info
+This will add your externally obtained JavaScript and CSS, as well as all it's necessary dependencies, into GLaDOS.info
 
 ```bash
 $ bower install <package> --save

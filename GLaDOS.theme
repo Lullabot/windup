@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * windup starter .theme file
+ * GLaDOS starter .theme file
  *
  * Contains preprocessing, processing, and anything else you might need to do.
  */
@@ -13,17 +13,17 @@
  *   An array of variables to pass to the theme template.
  * @param string $hook
  *   The name of the template being rendered. This is usually "html," but can
- *   also be "maintenance_page" since windup_preprocess_maintenance_page()
+ *   also be "maintenance_page" since GLaDOS_preprocess_maintenance_page()
  *   calls this function to have consistent variables.
  */
-function windup_preprocess_html(&$variables, $hook) {
+function GLaDOS_preprocess_html(&$variables, $hook) {
   // Return early so the maintenance page does not call any code we write below.
   if ($hook != 'html') {
     return;
   }
 }
 
-function windup_preprocess_node(&$variables, $hook) {
+function GLaDOS_preprocess_node(&$variables, $hook) {
   // Add an unpublished variable
   $variables['unpublished'] = FALSE;
   if ($variables['node']->isPublished() != TRUE) {
@@ -35,7 +35,7 @@ function windup_preprocess_node(&$variables, $hook) {
 /**
  * Implements hook_theme_suggestions_alter().
  */
-function windup_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+function GLaDOS_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
 
   // Create a page suggestion per content type.
   if ($hook === 'page') {
@@ -50,6 +50,6 @@ function windup_theme_suggestions_alter(array &$suggestions, array $variables, $
 /**
  * Implements template_preprocess_menu_local_task().
  */
-function windup_preprocess_menu_local_task(&$variables) {
+function GLaDOS_preprocess_menu_local_task(&$variables) {
   $variables['link']['#options']['attributes']['class'][] = 'admin-tabs__link';
 }
