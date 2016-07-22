@@ -48,7 +48,7 @@ function windup_theme_suggestions_alter(array &$suggestions, array $variables, $
     // a full object, hence we require this verbose workaround to ensure we start
     // with a scalar in both cases.
     $node_id = \Drupal::routeMatch()->getRawParameter('node');
-    if ($node = Node::load($node_id)) {
+    if ($node_id && ($node = Node::load($node_id))) {
       $content_type = $node->bundle();
       $suggestions[] = 'page__' . $content_type;
     }
