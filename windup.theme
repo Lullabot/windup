@@ -6,6 +6,8 @@
  * Contains preprocessing, processing, and anything else you might need to do.
  */
 
+use Drupal\node\Entity\Node;
+
 /**
  * Override or insert variables into the html template.
  *
@@ -39,7 +41,14 @@ function windup_theme_suggestions_alter(array &$suggestions, array $variables, $
 
   // Create a page suggestion per content type.
   if ($hook === 'page') {
-    if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    // NOTE: once https://www.drupal.org/node/2730631 is committed to D8, we can
+    // simplify and go back to:
+    // $node = \Drupal::routeMatch()->getParameter('node')
+    // Currently the node revision routes do not convert the node parameter to
+    // a full object, hence we require this verbose workaround to ensure we start
+    // with a scalar in both cases.
+    $node_id = \Drupal::routeMatch()->getRawParameter('node');
+    if ($node_id && ($node = Node::load($node_id))) {
       $content_type = $node->bundle();
       $suggestions[] = 'page__' . $content_type;
     }
