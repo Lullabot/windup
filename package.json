@@ -7,6 +7,7 @@
     "bower-config": "^0.5.2",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^3.0.0",
+    "grunt-cli": "^1.2.0",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-eslint": "^18.1.0",
