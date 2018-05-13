@@ -1,6 +1,7 @@
-(function ($) {
+'use strict';
 
-  'use strict';
+(function () {
+
 
   /**
    * Example function.
@@ -9,8 +10,9 @@
   Drupal.behaviors.sayHello = {
     'attach': function (context) {
       // Do JavaScript things in here!
-      // console.log('Hello, world!');
-    }
+      const logMessage = (message) => console.log(message);
+      logMessage('Hello, world!');
+    },
   };
 
-})(jQuery);
+})();

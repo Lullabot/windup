@@ -7,7 +7,10 @@
 
 # Ignore output css
 css/style.css
-css/style.css.map
+css/**/*.css.map
+
+# Ignore output js
+js/*.js
 
 # Ignore node modules
 node_modules
