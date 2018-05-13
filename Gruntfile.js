@@ -6,105 +6,105 @@
 module.exports = function (grunt) {
 
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-    sass: {
-      options: {
-        // sourceMap: true
+    'pkg': grunt.file.readJSON('package.json'),
+    'sass': {
+      'options': {
+        // 'sourceMap': true
       },
-      dist: {
-        files: {
+      'dist': {
+        'files': {
           'css/style.css': 'scss/style.scss'
         }
       }
     },
-    sass_globbing: {
-      dist: {
-        files: {
+    'sass_globbing': {
+      'dist': {
+        'files': {
           'scss/_component.scss': 'scss/component/**/*.scss',
           'scss/_layout.scss': 'scss/layout/**/*.scss',
           'scss/_skin.scss': 'scss/skin/**/*.scss'
         }
       },
-      options: {
-        useSingleQuotes: true
+      'options': {
+        'useSingleQuotes': true
       }
     },
-    watch: {
-      css: {
-        files: ['scss/**/*.scss'],
-        tasks: ['sasslint', 'sass_globbing', 'sass', 'autoprefixer'],
-        options: {
-          livereload: true,
-          spawn: false
+    'watch': {
+      'css': {
+        'files': ['scss/**/*.scss'],
+        'tasks': ['sasslint', 'sass_globbing', 'sass', 'autoprefixer'],
+        'options': {
+          'livereload': true,
+          'spawn': false
         }
       }
     },
-    clean: {
-      css: ['css/style.css', 'scss/_component.scss', 'scss/_layout.scss', 'scss/_skin.scss']
+    'clean': {
+      'css': ['css/style.css', 'scss/_component.scss', 'scss/_layout.scss', 'scss/_skin.scss']
     },
-    wiredep: {
-      task: {
-        src: [
+    'wiredep': {
+      'task': {
+        'src': [
           'windup.libraries.yml',
           'scss/_vendor.scss'
         ],
-        exclude: ['/jquery.js'],
-        options: {
-          fileTypes: {
-            yaml: {
-              block: /(([ \t]*)#\s*bower:*(\S*))(\n|\r|.)*?(#\s*endbower)/gi,
-              detect: {
-                js: /-\s(.+js)/gi,
-                css: /-\s(.+css)/gi
+        'exclude': ['/jquery.js'],
+        'options': {
+          'fileTypes': {
+            'yaml': {
+              'block': /(([ \t]*)#\s*bower:*(\S*))(\n|\r|.)*?(#\s*endbower)/gi,
+              'detect': {
+                'js': /-\s(.+js)/gi,
+                'css': /-\s(.+css)/gi
               },
-              replace: {
-                js: '{{filePath}}: {}',
-                css: '{{filePath}}: {}'
+              'replace': {
+                'js': '{{filePath}}: {}',
+                'css': '{{filePath}}: {}'
               }
             },
-            scss: {
-              block: /(([ \t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
-              detect: {
-                css: /@import\s['"](.+css)['"]/gi,
-                sass: /@import\s['"](.+sass)['"]/gi,
-                scss: /@import\s['"](.+scss)['"]/gi
+            'scss': {
+              'block': /(([ \t]*)\/\/\s*bower:*(\S*))(\n|\r|.)*?(\/\/\s*endbower)/gi,
+              'detect': {
+                'css': /@import\s['"](.+css)['"]/gi,
+                'sass': /@import\s['"](.+sass)['"]/gi,
+                'scss': /@import\s['"](.+scss)['"]/gi
               },
-              replace: {
-                css: '@import "{{filePath}}";',
-                sass: '@import "{{filePath}}";',
-                scss: '@import "{{filePath}}";'
+              'replace': {
+                'css': '@import "{{filePath}}";',
+                'sass': '@import "{{filePath}}";',
+                'scss': '@import "{{filePath}}";'
               }
             }
           }
         }
       }
     },
-    wiredep_create_bower: {
-      dist: {}
+    'wiredep_create_bower': {
+      'dist': {}
     },
-    autoprefixer: {
-      options: {
-        browsers: ['last 3 versions', 'ie 9']
+    'autoprefixer': {
+      'options': {
+        'browsers': ['last 3 versions', 'ie 9']
         // For testing purposes, use this config
-        // browsers: ['opera 12', 'ff 15', 'chrome 25']
+        // 'browsers': ['opera 12', 'ff 15', 'chrome 25']
       },
-      single_file: {
-        src: 'css/style.css',
-        dest: 'css/style.css'
+      'single_file': {
+        'src': 'css/style.css',
+        'dest': 'css/style.css'
       }
     },
-    sasslint: {
-      options: {
-        configFile: '.sass-lint.yml',
-        formatter: 'table'
+    'sasslint': {
+      'options': {
+        'configFile': '.sass-lint.yml',
+        'formatter': 'table'
       },
-      target: ['scss/**/*.scss']
+      'target': ['scss/**/*.scss']
     },
-    eslint: {
-      options: {
-        configFile: '.eslintrc'
+    'eslint': {
+      'options': {
+        'configFile': '.eslintrc'
       },
-      target: ['js/windup.js']
+      'target': ['js/windup.js']
     }
   });
 

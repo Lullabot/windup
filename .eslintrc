@@ -1,4 +1,5 @@
 {
+  "root": true, // Don't use Drupal core's .eslintrc, creates build issues
   "env": {
     "browser": true
   },
