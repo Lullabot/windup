@@ -1,6 +1,6 @@
 global:
   css:
-    compiled:
+    theme:
       css/style.css: {}
   js:
     js/windup.js: {}
@@ -11,6 +11,6 @@ bower:
     # bower:js
     # endbower
   css:
-    compiled:
+    theme:
       # bower:css
       # endbower
