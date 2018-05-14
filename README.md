@@ -7,29 +7,19 @@ A Ruby Sass version of this theme can be found on the branch ruby-sass.
 
 ## Installation
 
-Make sure you have npm, bower and grunt-cli installed
+Make sure you have node version 5.2.x or higher (we're depending on npx being installed). If you don't please look up the steps to install it for the OS you wish to compile the code on.
 
-```bash
-$ brew install node
-$ npm install -g grunt-cli
-$ npm install -g bower
-```
-
-Then install the theme's dependencies
+Install the theme's dependencies
 
 ```bash
 $ npm install
-$ bower install
 ```
 
 If the dependencies for a project change, you can update them with:
 
 ```bash
 $ npm update
-$ bower update
 ```
-
-You can also enable sourcemaps and full tracebacks on error in Gruntfile.js
 
 If you wish to rename windup to a different name (which you probably do), YMMV but you can try:
 ```bash
@@ -37,59 +27,33 @@ $ grep -rl windup * | xargs sed -i .bk 's/windup/mytheme/g'
 $ rm *.bk
 ```
 
-and then rename the files listed by 
+and then rename the files listed by
 ```bash
 find . -not -path '*/.*/*' -not -name '.*' -name '*windup*'
 ```
 
 ## Usage
 
-### Wire Dependencies and Compile Sass
+### Build CSS and Javascript
 
+For production run:
 ```bash
-$ grunt
+$ npm run build
 ```
 
-### Watch for changes
+### To watch for changes, and build in dev mode use:
 
 ```bash
-$ grunt watch
+$ npm start
 ```
 
-This task will automatically compile Sass when changes are detected in the `.scss` files.
+This task will automatically compile `.scss` and `.es6` files when changes are detected.
 
-If you're using ```grunt watch``` and click the [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) button, your browser will refresh automatically when Grunt spots a change to your sass files.
+If you're using `npm start` and click the [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) button, your browser will refresh automatically when Grunt spots a change to your sass files.
 
 ### Autoprefixer
 
-Windup uses [Autoprefixer](https://github.com/postcss/autoprefixer) to automatically add browser prefixes to your css properties based on your configuration. By default, autoprefixer is set to support the last 3 versions of browsers, and IE9 and up. You can modify this within Gruntfile.js using the the [syntax documented on the browserlist plugin page](https://github.com/ai/browserslist#queries).
-
-### Wire Dependencies
-
-```bash
-$ grunt wiredep
-```
-
-This will wire the Bower components specified in ```bower.json``` into ```windup.info``` and ```_vendor.scss``` (See below).
-
-## Dependencies
-
-This will add your externally obtained JavaScript and CSS, as well as all it's necessary dependencies, into windup.info
-
-```bash
-$ bower install <package> --save
-$ grunt wiredep
-```
-
-Sass files will be added into scss/_vendor.scss
-
-```bash
-$ bower install susy --save
-$ grunt wiredep
-```
-
-Where <package> is a registered package, GitHub shorthand (e.g. " desandro/masonry"), Git endpoint (e.g. "git://github.com/user/package.git") or a URL (e.g. "http://example.com/script.js").
-You can also edit ```bower.json``` directly.
+Windup uses [Autoprefixer](https://github.com/postcss/autoprefixer) and [Babel](https://babeljs.io/) to automatically help your CSS and JS be more compatible with older browsers. By default, they are set to support the browsers with 0.25% market share or above and some other rules. You can modify this within Gruntfile.js using the the [syntax documented on the browserlist plugin page](https://github.com/ai/browserslist#queries), you can test your queries on [browserl.ist](http://browserl.ist).
 
 ## Template Suggestions and Classes
 Template suggestions across all core (Node, User, Taxonomy Term and Comment) and Entity API defined entity types have been normalised to the following:
