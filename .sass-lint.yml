@@ -53,7 +53,7 @@ rules:
   nesting-depth:
     - 2
     - max-depth: 4
-  no-color-keyword: 2
+  no-color-keywords: 2
   no-color-literals: 2
   no-css-comments: 2
   no-debug: 2
